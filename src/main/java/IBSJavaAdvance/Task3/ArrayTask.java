@@ -15,44 +15,44 @@ public class ArrayTask {
             System.out.println(res);
         }
 
-        int[] resMax = getMaxValue(numbers);
-        int[] resMin = getMinValue(numbers);
+        int[] resMax = getMaxNegativeValue(numbers);
+        int[] resMin = getMinPositiveValue(numbers);
         numbers[resMax[1]] = resMin[0];
         numbers[resMin[1]] = resMax[0];
     }
 
-    public static int[] getMaxValue(int[] arrayNumbers) {
-        int maxValue = Integer.MIN_VALUE;
-        int maxValueIndex = 0;
+    public static int[] getMinPositiveValue(int[] arrayNumbers) {
+        int minPositiveValue = Integer.MAX_VALUE;
+        int minPositiveValueIndex = 0;
 
         for (int index = 0; index < arrayNumbers.length; index++) {
-            if (arrayNumbers[index] > maxValue) {
-                maxValue = arrayNumbers[index];
-                maxValueIndex = index;
+            if (arrayNumbers[index] > 0 && arrayNumbers[index] < minPositiveValue) {
+                minPositiveValue = arrayNumbers[index];
+                minPositiveValueIndex = index;
             }
         }
 
         int[] data = new int[2];
-        data[0] = maxValue;
-        data[1] = maxValueIndex;
+        data[0] = minPositiveValue;
+        data[1] = minPositiveValueIndex;
 
         return data;
     }
 
-    public static int[] getMinValue(int[] arrayNumbers) {
-        int minValue = Integer.MAX_VALUE;
-        int minValueIndex = 0;
+    public static int[] getMaxNegativeValue(int[] arrayNumbers) {
+        int maxNegativeValue = Integer.MIN_VALUE;
+        int maxNegativeIndex = 0;
 
         for (int index = 0; index < arrayNumbers.length; index++) {
-            if (arrayNumbers[index] < minValue) {
-                minValue = arrayNumbers[index];
-                minValueIndex = index;
+            if (arrayNumbers[index] < 0 && arrayNumbers[index] > maxNegativeValue) {
+                maxNegativeValue = arrayNumbers[index];
+                maxNegativeIndex = index;
             }
         }
 
         int[] data = new int[2];
-        data[0] = minValue;
-        data[1] = minValueIndex;
+        data[0] = maxNegativeValue;
+        data[1] = maxNegativeIndex;
 
         return data;
     }
