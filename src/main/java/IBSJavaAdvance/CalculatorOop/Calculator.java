@@ -1,29 +1,65 @@
 package IBSJavaAdvance.CalculatorOop;
 
 public class Calculator {
-    public Double doOperation(Double number1, Double number2, String operation) {
-        Double res = 0.0;
+    private Double number1;
+    private Double number2;
+    private String operation;
+    private Double result;
+
+    public Calculator(Double number1, Double number2, String operation) {
+        this.number1 = number1;
+        this.number2 = number2;
+        this.operation = operation;
+    }
+
+    public Double getNumber1() {
+        return number1;
+    }
+
+    public void setNumber1(Double number1) {
+        this.number1 = number1;
+    }
+
+    public Double getNumber2() {
+        return number2;
+    }
+
+    public void setNumber2(Double number2) {
+        this.number2 = number2;
+    }
+
+    public String getOperation() {
+        return operation;
+    }
+
+    public void setOperation(String operation) {
+        this.operation = operation;
+    }
+
+    public Double getResult() {
         switch (operation) {
             case "+":
                 Sum sum = new Sum();
-                res = sum.doOperation(number1, number2);
+                result = sum.doOperation(number1, number2);
                 break;
             case "-":
                 Subtraction subtraction = new Subtraction();
-                res = subtraction.doOperation(number1, number2);
+                result = subtraction.doOperation(number1, number2);
                 break;
             case "*":
                 Multiplication multiplication = new Multiplication();
-                res = multiplication.doOperation(number1, number2);
+                result = multiplication.doOperation(number1, number2);
                 break;
             case "/":
                 Division division = new Division();
-                res = division.doOperation(number1, number2);
+                result = division.doOperation(number1, number2);
                 break;
-            default:
-                System.out.println("Действие на найдено в калькуляторе");
         }
 
-        return res;
+        return result;
+    }
+
+    public void setResult(Double result) {
+        this.result = result;
     }
 }
